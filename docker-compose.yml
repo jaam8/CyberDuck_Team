@@ -7,6 +7,7 @@ services:
     container_name: backend
     depends_on:
       - postgres
+    #заменить на запуск внутри контейнера backend
     command: >
       bash -c "echo "Hello world""
     networks:
@@ -33,6 +34,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
     container_name: frontend
+    #заменить на запуск внутри контейнера frontend
     command: >
       bash -c "echo "Hello world""
     volumes:
