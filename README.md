@@ -1,7 +1,3 @@
-Certainly! Here is a detailed and well-structured README for your project, taking into account the provided project structure and requirements.
-
----
-
 # CyberDuck Team - Legal Entity Rights Verification Service
 
 ## Описание проекта
