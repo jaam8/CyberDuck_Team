@@ -10,13 +10,17 @@ def login(request):
         if person_data.is_valid() and passport_data.is_valid() and snils_data.is_valid():
             passport_data = passport_data.save()
             snils_data = snils_data.save()
-            person_data = person_data.save()
+            person_data = person_data.save(commit=False)
             person_data.passport_data = passport_data
             person_data.snils_data = snils_data
             person_data.save()
             return redirect('success')
-    else:
+        else:
             error = 'какая-то ошибка'
+    else:
+        person_data = PersonDataForm()
+        passport_data = PassportDataForm()
+        snils_data = SnilsForm()
 
     person_data = PersonDataForm()
     passport_data = PassportDataForm()
@@ -32,4 +36,4 @@ def login(request):
 
 
 def success(request):
-    return render('success_reg.html')
+    return render(request, 'success_reg.html')
