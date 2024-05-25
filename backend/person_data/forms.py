@@ -64,7 +64,7 @@ class PassportDataForm(ModelForm):
                 'placeholder': "name@example.com",
             }),
             "issue_date": DateInput(attrs={
-                'type': "text",
+                'type': "date",
                 'class': "form-control",
                 'id': "issue_date",
                 'onchange': "Verify(issue_date,'issue_date_Err')",
@@ -85,7 +85,7 @@ class PassportDataForm(ModelForm):
                 'placeholder': "name@example.com",
             }),
             "dob": DateInput(attrs={
-                'type': "text",
+                'type': "date",
                 'class': "form-control",
                 'id': "dob",
                 'onchange': "Verify(dob,'dob_Err')",
