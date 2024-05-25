@@ -14,7 +14,7 @@ def login(request):
             person_data.passport_data = passport_data
             person_data.snils_data = snils_data
             person_data.save()
-            return redirect('success')
+            return redirect('success_reg.html')
         else:
             error = 'какая-то ошибка'
     else:
