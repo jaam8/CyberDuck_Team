@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import PersonDataForm, PassportDataForm, SnilsForm
 
 def login(request):
@@ -14,6 +14,7 @@ def login(request):
             person_data.passport_data = passport_data
             person_data.snils_data = snils_data
             person_data.save()
+            return redirect('success')
     else:
             error = 'какая-то ошибка'
 
@@ -27,4 +28,8 @@ def login(request):
         'snils_data': snils_data,
         'error': error,
     }
-    return render(request, 'form.html', context=data)
+    return render(request, 'form_reg.html', context=data)
+
+
+def success(request):
+    return render('success_reg.html')

@@ -1,0 +1,76 @@
+body{
+    background: black;
+    color: white;
+    font-family: "TT Norms", sans-serif;
+    display: flex;
+    flex-direction: column-reverse;
+}
+form{
+    background: black;
+    color: white;
+    margin: 3%;
+    padding: 3%;
+    border-radius: 20px;
+}
+label:focus{
+    background: black;
+    color: white;
+}
+.d-flex{
+    justify-content: space-around;
+}
+.form-control:focus{
+    background: #000000;
+    color: white;
+    width: 100%;
+    border: none;
+    box-shadow: 1px 1px 2px 0 white;
+    border-radius: 0;
+}
+.form-control{
+    background: #000000;
+    color: white;
+    width: 100%;
+    border: none;
+    border-bottom:1px solid white;
+    border-radius: 0;
+}
+.form-floating{
+    margin: 5%;
+}
+.but{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    margin: 3%;
+    background: black;
+    border: 2px solid  white;
+}
+.btn:hover{
+    margin: 3%;
+    background: #b4b0b0;
+    border: 2px solid  #b4b0b0;
+}
+.list-group-item{
+    margin: 3%;
+    border-radius: 2px;
+    background: black;
+    color: red;
+    padding: 1%;
+    display: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.Container{
+    width: 50%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
