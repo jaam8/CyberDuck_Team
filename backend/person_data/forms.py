@@ -109,38 +109,38 @@ class OrganizationForm(ModelForm):
             "inn": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
-                'id': "inn",
-                'placeholder': "name@example.com",
+                'id': "INN",
+                'placeholder': "ИНН",
             }),
             "ogrn": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
-                'id': "ogrn",
-                'placeholder': "name@example.com",
+                'id': "OGRN",
+                'placeholder': "ОГРН",
             }),
             "kpp": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
-                'id': "kpp",
-                'placeholder': "name@example.com",
+                'id': "KPP",
+                'placeholder': "КПП",
             }),
             "full_name": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "full_name",
-                'placeholder': "name@example.com",
+                'placeholder': "Полное наименование",
             }),
             "legal_address": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "legal_address",
-                'placeholder': "name@example.com",
+                'placeholder': "Юридический адрес",
             }),
             "mailing_address": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
-                'id': "mailing_address",
-                'placeholder': "name@example.com",
+                'id': "post_address",
+                'placeholder': "Почтовый адрес",
             }),
         }
 
@@ -150,23 +150,24 @@ class NotarisedOfAttorneyForm(ModelForm):
         model = models.NotarisedOfAttorney
         fields = ['name', 'inn', 'expiration_date',]
 
-    widgets = {
-        "name": TextInput(attrs={
-            'type': "text",
-            'class': "form-control",
-            'id': "inn",
-            'placeholder': "name@example.com",
-        }),
-        "inn": TextInput(attrs={
-            'type': "text",
-            'class': "form-control",
-            'id': "inn",
-            'placeholder': "name@example.com",
-        }),
-        "expiration_date": DateInput(attrs={
-            'type': "date",
-            'class': "form-control",
-            'id': "expiration_date",
-            'placeholder': "name@example.com",
-        }),
-    }
+        widgets = {
+            "name": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "FIO",
+                'placeholder': "ФИО",
+            }),
+            "inn": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "INN_nal",
+                'placeholder': "ИНН",
+            }),
+            "expiration_date": DateInput(attrs={
+                'type': "date",
+                'class': "form-control",
+                'id': "date_of_end",
+                'placeholder': "Дата окончания",
+                'onchange': "Verify(date_of_end,'date_of_end_Err')",
+            }),
+        }

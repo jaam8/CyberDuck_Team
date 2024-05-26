@@ -12,19 +12,22 @@ form{
     padding: 3%;
     border-radius: 20px;
 }
-label:focus{
+.lb:focus{
     background: black;
     color: white;
 }
 .d-flex{
     justify-content: space-around;
 }
+.bi-exclamation-circle, .bi-check-circle{
+    margin: 10% 0;
+}
 .form-control:focus{
     background: #000000;
     color: white;
     width: 100%;
     border: none;
-    box-shadow: 1px 1px 2px 0 white;
+    box-shadow: 2px 2px 2px 0 white;
     border-radius: 0;
 }
 .form-control{
@@ -42,12 +45,12 @@ label:focus{
     display: flex;
     justify-content: center;
 }
-.btn{
+.btn-primary{
     margin: 3%;
     background: black;
     border: 2px solid  white;
 }
-.btn:hover{
+.btn-primary:hover{
     margin: 3%;
     background: #b4b0b0;
     border: 2px solid  #b4b0b0;
