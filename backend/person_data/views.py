@@ -17,10 +17,6 @@ def login(request):
             return redirect('success', permanent=True)
         else:
             error = 'какая-то ошибка'
-    else:
-        person_data = PersonDataForm()
-        passport_data = PassportDataForm()
-        snils_data = SnilsForm()
 
     person_data = PersonDataForm()
     passport_data = PassportDataForm()

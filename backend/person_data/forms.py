@@ -1,37 +1,30 @@
 from django.forms import ModelForm, TextInput, DateInput
-from .models import PersonData, PassportData, Snils
+from . import models
 
 
 class PersonDataForm(ModelForm):
     class Meta:
-        model = PersonData
-        fields = [
-            "last_name",
-            "first_name",
-            "patronymic",
-            "phone_number",
-        ]
+        model = models.PersonData
+        fields = ["last_name", "first_name",
+                  "patronymic", "phone_number",]
 
         widgets = {
             "last_name": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "last_name",
-                'onchange': "Verify(last_name,'last_name_err')",
                 'placeholder': "name@example.com",
             }),
             "first_name": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "first_name",
-                'onchange': "Verify(first_name,'first_name_err')",
                 'placeholder': "name@example.com",
             }),
             "patronymic": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "patronymic",
-                'onchange': "Verify(patronymic,'patronymic_err')",
                 'placeholder': "name@example.com",
             }),
             "phone_number": TextInput(attrs={
@@ -45,57 +38,47 @@ class PersonDataForm(ModelForm):
 
 class PassportDataForm(ModelForm):
     class Meta:
-        model = PassportData
+        model = models.PassportData
         fields = [
-            "series_number",
-            "issue_date",
-            "who_issued",
-            "department_code",
-            "dob",
-            "place_of_birth",
-        ]
+            "series_number", "issue_date",
+            "who_issued", "department_code",
+            "dob", "place_of_birth",]
 
         widgets = {
             "series_number": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "series_number",
-                'onchange': "Verify(series_number,'series_number_Err')",
                 'placeholder': "name@example.com",
             }),
             "issue_date": DateInput(attrs={
                 'type': "date",
                 'class': "form-control",
                 'id': "issue_date",
-                'onchange': "Verify(issue_date,'issue_date_Err')",
                 'placeholder': "name@example.com",
             }),
             "who_issued": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "who_issued",
-                'onchange': "Verify(who_issued,'who_issued_Err')",
                 'placeholder': "name@example.com",
             }),
             "department_code": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "number_of_snils",
-                'onchange': "Verify(department_code,'department_code_Err')",
                 'placeholder': "name@example.com",
             }),
             "dob": DateInput(attrs={
                 'type': "date",
                 'class': "form-control",
                 'id': "dob",
-                'onchange': "Verify(dob,'dob_Err')",
                 'placeholder': "name@example.com",
             }),
             "place_of_birth": TextInput(attrs={
                 'type': "text",
                 'class': "form-control",
                 'id': "place_of_birth",
-                'onchange': "Verify(place_of_birth,'place_of_birth_Err')",
                 'placeholder': "name@example.com",
             }),
         }
@@ -103,7 +86,7 @@ class PassportDataForm(ModelForm):
 
 class SnilsForm(ModelForm):
     class Meta:
-        model = Snils
+        model = models.Snils
         fields = ["number_of_snils"]
 
         widgets = {
@@ -111,7 +94,79 @@ class SnilsForm(ModelForm):
                 'type': "text",
                 'class': "form-control",
                 'id': "number_of_snils",
-                'onchange': "Verify(number_of_snils,'number_of_snils_Err')",
                 'placeholder': "name@example.com",
             }),
         }
+
+
+class OrganizationForm(ModelForm):
+    class Meta:
+        model = models.Organization
+        fields = ['inn', 'ogrn', 'kpp', 'full_name',
+                  'legal_address', 'mailing_address',]
+
+        widgets = {
+            "inn": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "inn",
+                'placeholder': "name@example.com",
+            }),
+            "ogrn": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "ogrn",
+                'placeholder': "name@example.com",
+            }),
+            "kpp": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "kpp",
+                'placeholder': "name@example.com",
+            }),
+            "full_name": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "full_name",
+                'placeholder': "name@example.com",
+            }),
+            "legal_address": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "legal_address",
+                'placeholder': "name@example.com",
+            }),
+            "mailing_address": TextInput(attrs={
+                'type': "text",
+                'class': "form-control",
+                'id': "mailing_address",
+                'placeholder': "name@example.com",
+            }),
+        }
+
+
+class NotarisedOfAttorneyForm(ModelForm):
+    class Meta:
+        model = models.NotarisedOfAttorney
+        fields = ['name', 'inn', 'expiration_date',]
+
+    widgets = {
+        "name": TextInput(attrs={
+            'type': "text",
+            'class': "form-control",
+            'id': "inn",
+            'placeholder': "name@example.com",
+        }),
+        "inn": TextInput(attrs={
+            'type': "text",
+            'class': "form-control",
+            'id': "inn",
+            'placeholder': "name@example.com",
+        }),
+        "expiration_date": DateInput(attrs={
+            'type': "date",
+            'class': "form-control",
+            'id': "expiration_date",
+            'placeholder': "name@example.com",
+        }),
+    }
