@@ -22,10 +22,10 @@ class Snils(models.Model):
 
 class Organization(models.Model):
     inn = models.CharField(max_length=10, verbose_name='ИНН')
-    ogrn = models.CharField(max_length=13, verbose_name='ОГРН')
-    kpp = models.CharField(max_length=9, verbose_name='КПП')
-    full_name = models.CharField(verbose_name='Полное наименование')
-    legal_address = models.CharField(verbose_name='Юридический адрес')
+    ogrn = models.CharField(max_length=13, verbose_name='ОГРН', null=True, blank=True)
+    kpp = models.CharField(max_length=9, verbose_name='КПП', null=True, blank=True)
+    full_name = models.CharField(verbose_name='Полное наименование', null=True, blank=True)
+    legal_address = models.CharField(verbose_name='Юридический адрес', null=True, blank=True)
     mailing_address = models.CharField(verbose_name='Почтовый адрес')
 
     def __str__(self):
@@ -47,8 +47,9 @@ class PersonData(models.Model):
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     patronymic = models.CharField(max_length=100, verbose_name='Отчество')
     phone_number = models.CharField(max_length=20, verbose_name='Номер телефона')
-    passport_data = models.OneToOneField(PassportData, models.CASCADE, verbose_name='Паспортные данные')
-    snils = models.OneToOneField(Snils, models.CASCADE, verbose_name='СНИЛС')
+    passport_data = models.OneToOneField(PassportData, models.CASCADE, verbose_name='Паспортные данные',
+                                         null=True, blank=True)
+    snils = models.OneToOneField(Snils, models.CASCADE, verbose_name='СНИЛС', null=True, blank=True)
     org_id = models.ForeignKey(Organization, models.PROTECT, null=True)
     proxy_id = models.OneToOneField(NotarisedOfAttorney, models.CASCADE, null=True, blank=True)
 
