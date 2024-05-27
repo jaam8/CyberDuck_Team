@@ -62,87 +62,87 @@ def choice(request):
     return render(request, 'main.html')
 
 
-def physical_face(request):
-    if request.method == 'POST':
-        passport_data = forms.PassportDataForm(request.POST)
-        snils_data = forms.SnilsForm(request.POST)
-        person_data = forms.PersonDataForm(request.POST)
-        organization_data = forms.OrganizationForm(request.POST)
-        notarised_of_attorney_data = forms.NotarisedOfAttorneyForm(request.POST)
-
-        if person_data.is_valid() and passport_data.is_valid() and snils_data.is_valid() \
-                and organization_data.is_valid() and notarised_of_attorney_data.is_valid():
-            passport_data = passport_data.save()
-            snils_data = snils_data.save()
-            person_data = person_data.save(commit=False)
-            person_data.passport_data = passport_data
-            person_data.snils = snils_data
-            organization_data = organization_data.save()
-            notarised_of_attorney_data = notarised_of_attorney_data.save()
-
-            person_data.organization = organization_data
-            person_data.notarised_of_attorney = notarised_of_attorney_data
-
-            person_data.save()
-
-            return redirect('success', permanent=True)
-        else:
-            return redirect('fall', permanent=True)
-
-    person_data = forms.PersonDataForm()
-    passport_data = forms.PassportDataForm()
-    snils_data = forms.SnilsForm()
-    organization_data = forms.OrganizationForm()
-    notarised_of_attorney_data = forms.NotarisedOfAttorneyForm()
-
-    context = {
-        'person_data': person_data,
-        'passport_data': passport_data,
-        'snils_data': snils_data,
-        'organization': organization_data,
-        'notarised_of_attorney': notarised_of_attorney_data,
-    }
-    return render(request, 'physical_face.html', context)
-
-
-def legal_face(request):
-    if request.method == 'POST':
-        passport_data = forms.PassportDataForm(request.POST)
-        snils_data = forms.SnilsForm(request.POST)
-        person_data = forms.PersonDataForm(request.POST)
-        organization_data = forms.OrganizationForm(request.POST)
-        notarised_of_attorney_data = forms.NotarisedOfAttorneyForm(request.POST)
-
-        if person_data.is_valid() and passport_data.is_valid() and snils_data.is_valid() \
-                and organization_data.is_valid() and notarised_of_attorney_data.is_valid():
-            passport_data = passport_data.save()
-            snils_data = snils_data.save()
-            person_data = person_data.save(commit=False)
-            person_data.passport_data = passport_data
-            person_data.snils = snils_data
-            organization_data = organization_data.save()
-            notarised_of_attorney_data = notarised_of_attorney_data.save()
-
-            person_data.organization = organization_data
-            person_data.notarised_of_attorney = notarised_of_attorney_data
-
-            person_data.save()
-
-            return redirect('success', permanent=True)
-        else:
-            return redirect('fall', permanent=True)
-
-    person_data = forms.PersonDataForm()
-    passport_data = forms.PassportDataForm()
-    snils_data = forms.SnilsForm()
-    organization_data = forms.OrganizationForm()
-    notarised_of_attorney_data = forms.NotarisedOfAttorneyForm()
-
-    context = {
-        'person_data': person_data,
-        'passport_data': passport_data,
-        'snils_data': snils_data,
-        'organization': organization_data,
-        'notarised_of_attorney': notarised_of_attorney_data,
-    }
-    return render(request, 'legal_face.html', context)
+# def physical_face(request):
+#     if request.method == 'POST':
+#         passport_data = forms.PassportDataForm(request.POST)
+#         snils_data = forms.SnilsForm(request.POST)
+#         person_data = forms.PersonDataForm(request.POST)
+#         organization_data = forms.OrganizationForm(request.POST)
+#         notarised_of_attorney_data = forms.NotarisedOfAttorneyForm(request.POST)
+#
+#         if person_data.is_valid() and passport_data.is_valid() and snils_data.is_valid() \
+#                 and organization_data.is_valid() and notarised_of_attorney_data.is_valid():
+#             passport_data = passport_data.save()
+#             snils_data = snils_data.save()
+#             person_data = person_data.save(commit=False)
+#             person_data.passport_data = passport_data
+#             person_data.snils = snils_data
+#             organization_data = organization_data.save()
+#             notarised_of_attorney_data = notarised_of_attorney_data.save()
+#
+#             person_data.organization = organization_data
+#             person_data.notarised_of_attorney = notarised_of_attorney_data
+#
+#             person_data.save()
+#
+#             return redirect('success', permanent=True)
+#         else:
+#             return redirect('fall', permanent=True)
+#
+#     person_data = forms.PersonDataForm()
+#     passport_data = forms.PassportDataForm()
+#     snils_data = forms.SnilsForm()
+#     organization_data = forms.OrganizationForm()
+#     notarised_of_attorney_data = forms.NotarisedOfAttorneyForm()
+#
+#     context = {
+#         'person_data': person_data,
+#         'passport_data': passport_data,
+#         'snils_data': snils_data,
+#         'organization': organization_data,
+#         'notarised_of_attorney': notarised_of_attorney_data,
+#     }
+#     return render(request, 'physical_face.html', context)
+#
+#
+# def legal_face(request):
+#     if request.method == 'POST':
+#         passport_data = forms.PassportDataForm(request.POST)
+#         snils_data = forms.SnilsForm(request.POST)
+#         person_data = forms.PersonDataForm(request.POST)
+#         organization_data = forms.OrganizationForm(request.POST)
+#         notarised_of_attorney_data = forms.NotarisedOfAttorneyForm(request.POST)
+#
+#         if person_data.is_valid() and passport_data.is_valid() and snils_data.is_valid() \
+#                 and organization_data.is_valid() and notarised_of_attorney_data.is_valid():
+#             passport_data = passport_data.save()
+#             snils_data = snils_data.save()
+#             person_data = person_data.save(commit=False)
+#             person_data.passport_data = passport_data
+#             person_data.snils = snils_data
+#             organization_data = organization_data.save()
+#             notarised_of_attorney_data = notarised_of_attorney_data.save()
+#
+#             person_data.organization = organization_data
+#             person_data.notarised_of_attorney = notarised_of_attorney_data
+#
+#             person_data.save()
+#
+#             return redirect('success', permanent=True)
+#         else:
+#             return redirect('fall', permanent=True)
+#
+#     person_data = forms.PersonDataForm()
+#     passport_data = forms.PassportDataForm()
+#     snils_data = forms.SnilsForm()
+#     organization_data = forms.OrganizationForm()
+#     notarised_of_attorney_data = forms.NotarisedOfAttorneyForm()
+#
+#     context = {
+#         'person_data': person_data,
+#         'passport_data': passport_data,
+#         'snils_data': snils_data,
+#         'organization': organization_data,
+#         'notarised_of_attorney': notarised_of_attorney_data,
+#     }
+#     return render(request, 'legal_face.html', context)
