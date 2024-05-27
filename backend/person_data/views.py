@@ -76,3 +76,15 @@ def personal_info(request):
 
 def success(request):
     return render(request, 'success_page.html')
+
+
+def choice(request):
+    return render(request, 'main.html')
+
+
+def physical_face(request):
+    return render(request, 'physical_face.html')
+
+
+def legal_face(request):
+    return render(request, 'legal_face.html')
