@@ -1,12 +1,9 @@
 from django.urls import path
-from . import views
+from person_data import views
 
 
 urlpatterns = [
-    path('', views.choice, name='choice'),
-    path('physical_face/', views.physical_face, name='physical_face'),
-    path('legal_face/', views.legal_face, name='legal_face'),
     path('personal_info/', views.personal_info, name='personal_info'),
     path('success/', views.success, name='success'),
-    # path('', views.company_info, name='company_info'),
+    path('', views.company_info, name='company_info'),
 ]
